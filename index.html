@@ -3,139 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syed M. Saad - Coming Soon</title>
+<title>Syed M Saad - Coming Soon</title>
 <style>
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Body with 3D glassy gradient background */
-body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695);
-  background-size: 600% 600%;
-  animation: gradientAnimation 15s ease infinite;
-  overflow: hidden;
-  perspective: 1000px;
-}
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-/* Animated gradient */
-@keyframes gradientAnimation {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-/* Glassy card */
-.glass-card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 25px;
-  padding: 50px 80px;
-  backdrop-filter: blur(15px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.2);
-  text-align: center;
-  box-shadow: 0 0 50px rgba(0,0,0,0.2);
-  transform: rotateX(10deg) rotateY(-10deg);
-  transition: transform 0.5s ease;
-}
+  /* Stars */
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #b266ff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #b266ff;
+    animation: twinkle 2s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.5);}
+    50% { opacity: 1; transform: scale(1.2);}
+    100% { opacity: 0.2; transform: scale(0.5);}
+  }
 
-/* Hover 3D tilt */
-.glass-card:hover {
-  transform: rotateX(0deg) rotateY(0deg) scale(1.05);
-}
+  /* Container - crystal clear glass effect */
+  .container {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(128,0,128,0.02); /* very subtle blur */
+    border-radius: 20px;
+    backdrop-filter: blur(1px); /* minimal blur for crystal clear glass */
+    border: 1px solid rgba(255,255,255,0.15); /* glass edge */
+    z-index: 2;
+    color: #fff;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 
-/* Title */
-.glass-card h1 {
-  font-size: 3em;
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.6);
-}
+  h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 8px #fff, 0 0 20px #b266ff;
+  }
 
-/* Subtitle */
-.glass-card p {
-  font-size: 1.2em;
-  color: #eee;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
+  .coming-text {
+    display: block;
+    margin-top: 0.5rem; /* moves Coming Soon downward from Syed M Saad */
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 6px #fff, 0 0 15px #b266ff;
+  }
 
-/* Countdown timer (optional) */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-  font-size: 1.5em;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
+  p {
+    font-size: 1.2rem;
+    color: #d3d3d3;
+    text-shadow: 0 0 5px #b266ff;
+    margin: 1.5rem 0 2rem 0;
+  }
 
-.countdown div {
-  background: rgba(255,255,255,0.15);
-  padding: 20px;
-  border-radius: 15px;
-  min-width: 70px;
-  backdrop-filter: blur(10px);
-}
+  /* Countdown Timer */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .countdown div {
+    background: rgba(128,0,128,0.05);
+    padding: 1rem 0.8rem;
+    border-radius: 10px;
+    min-width: 60px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 10px #b266ff;
+  }
+  .countdown span {
+    display: block;
+    font-size: 0.8rem;
+    color: #d3d3d3;
+    margin-top: 4px;
+  }
 
-/* Footer text */
-footer {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 0.9em;
-  text-shadow: 0 0 5px rgba(0,0,0,0.4);
-}
+  .notify-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background: none;
+    border: 2px solid #b266ff;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px #b266ff, 0 0 20px #b266ff;
+    transition: 0.3s;
+  }
+  .notify-btn:hover {
+    background: #b266ff;
+    box-shadow: 0 0 12px #b266ff, 0 0 25px #d3aaff;
+  }
+
+  @media (max-width:500px){
+    h1{font-size:2rem;}
+    .coming-text{font-size:1.5rem;}
+    p{font-size:1rem;}
+    .countdown {gap:8px; font-size:1rem;}
+    .countdown div{min-width:45px;padding:0.6rem 0.5rem;}
+    .notify-btn{padding:0.6rem 1.5rem;font-size:0.9rem;}
+  }
 </style>
 </head>
 <body>
 
-<div class="glass-card">
-  <h1>SyedMSaad.com</h1>
-  <p>Coming Soon 🚀</p>
-  
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <h1>Syed M Saad</h1>
+  <span class="coming-text">Coming Soon</span>
+
+  <p>Our website is almost ready. Stay tuned!</p>
+
   <div class="countdown" id="countdown">
-    <div><span id="days">00</span><br>Days</div>
-    <div><span id="hours">00</span><br>Hours</div>
-    <div><span id="minutes">00</span><br>Minutes</div>
-    <div><span id="seconds">00</span><br>Seconds</div>
+    <div><span id="days">0</span>Days</div>
+    <div><span id="hours">0</span>Hours</div>
+    <div><span id="minutes">0</span>Minutes</div>
+    <div><span id="seconds">0</span>Seconds</div>
   </div>
+
+  <button class="notify-btn">Notify Me</button>
 </div>
 
-<footer>© 2026 Syed M Saad. All rights reserved.</footer>
-
 <script>
-// Countdown timer
-const launchDate = new Date("2026-06-01T00:00:00").getTime();
-const countdown = setInterval(() => {
-  const now = new Date().getTime();
-  const diff = launchDate - now;
-  
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((diff % (1000*60)) / 1000);
-  
-  document.getElementById("days").innerText = days.toString().padStart(2,'0');
-  document.getElementById("hours").innerText = hours.toString().padStart(2,'0');
-  document.getElementById("minutes").innerText = minutes.toString().padStart(2,'0');
-  document.getElementById("seconds").innerText = seconds.toString().padStart(2,'0');
-  
-  if(diff < 0){
-    clearInterval(countdown);
-    document.getElementById("countdown").innerHTML = "We Are Live!";
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  const starCount = 100;
+  for(let i=0;i<starCount;i++){
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.width = star.style.height = Math.random()*2 + 1 + 'px';
+    star.style.animationDuration = (Math.random()*2 + 1) + 's';
+    starsContainer.appendChild(star);
   }
-}, 1000);
+
+  // Countdown Timer
+  const countdownDate = new Date("June 1, 2026 00:00:00").getTime();
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    daysEl.innerText = days;
+    hoursEl.innerText = hours;
+    minutesEl.innerText = minutes;
+    secondsEl.innerText = seconds;
+
+    if(distance < 0){
+      clearInterval(timerInterval);
+      document.getElementById("countdown").innerHTML = "We are Live!";
+    }
+  }
+
+  const timerInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
 </script>
 
 </body>
 </html>
+
