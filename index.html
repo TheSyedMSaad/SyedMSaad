@@ -21,6 +21,7 @@
             background: radial-gradient(circle at center, #2e1e12 0%, #000000 100%);
             color: white;
             padding: 20px;
+            flex-direction: column; /* Allows copyright to sit below card */
         }
 
         /* 3D Floating Animation */
@@ -48,6 +49,7 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
             animation: float 6s ease-in-out infinite;
             position: relative;
+            margin-bottom: 30px;
         }
 
         /* Fiverr Style Active Point */
@@ -165,9 +167,19 @@
         .name { font-size: 1.2rem; font-weight: 700; }
         .role { color: #ff9f1c; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
 
+        /* Copyright Styling */
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-align: center;
+            font-weight: 300;
+        }
+
         @media (max-width: 480px) {
             .services-grid { grid-template-columns: 1fr; }
             .glass-card { padding: 30px 20px; }
+            h1 { font-size: 1.7rem; }
         }
     </style>
 </head>
@@ -201,8 +213,11 @@
         <div class="footer">
             <p class="name">Syed M Saad</p>
             <p class="role">Founder & CEO</p>
-            <p style="font-size: 10px; margin-top: 10px; opacity: 0.4;">SYEDMSAAD.COM</p>
         </div>
+    </div>
+
+    <div class="copyright">
+        &copy; 2026 Syed M Saad. All Rights Reserved.
     </div>
 
 </body>
