@@ -18,8 +18,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Gradient matching your photo's warm lighting */
-            background: radial-gradient(circle at center, #3d2b1f 0%, #000000 100%);
+            /* Background matches your photo's deep tones */
+            background: radial-gradient(circle at center, #2e1e12 0%, #0a0a0a 100%);
             color: #ffffff;
             padding: 20px;
             overflow: hidden;
@@ -27,43 +27,45 @@
 
         /* 3D Glassmorphism Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 40px;
+            border-radius: 30px;
+            padding: 50px 30px;
             width: 100%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-            /* Subtle 3D tilt */
-            transform: perspective(1000px) rotateX(5deg);
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            /* Initial 3D Tilt */
+            transform: perspective(1000px) rotateX(10deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        /* Hover Effect */
         .glass-card:hover {
-            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
-            border-color: #f4a261;
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            border-color: #ff9f1c; /* Matches the orange light in your photo */
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8);
         }
 
-        /* Circular Profile Image */
-        .profile-circle {
-            width: 150px;
-            height: 150px;
+        /* Profile Picture Style */
+        .profile-container {
+            width: 160px;
+            height: 160px;
             margin: 0 auto 25px;
             border-radius: 50%;
-            border: 4px solid #f4a261; /* Matches the orange light in your photo */
+            border: 4px solid #ff9f1c; 
             padding: 5px;
             background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 30px rgba(255, 159, 28, 0.3);
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 20px rgba(244, 162, 97, 0.3);
         }
 
-        .profile-circle img {
+        .profile-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -73,79 +75,86 @@
         /* Typography */
         h1 {
             font-size: 1.8rem;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 5px;
-            background: linear-gradient(to right, #fff, #f4a261);
+            background: linear-gradient(to right, #fff, #ff9f1c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .status {
+        .tagline {
             font-size: 0.8rem;
-            color: #f4a261;
+            color: #888;
             letter-spacing: 2px;
-            margin-bottom: 30px;
-            display: block;
             text-transform: uppercase;
+            margin-bottom: 35px;
         }
 
-        .divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
+        .info-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
         }
 
         .name {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
 
-        .ceo {
+        .title {
             font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
+            color: #ff9f1c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
-        .link {
-            color: #f4a261;
+        .domain {
+            display: inline-block;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 500;
+            opacity: 0.8;
+            transition: 0.3s;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 400px) {
+        .domain:hover {
+            opacity: 1;
+            color: #ff9f1c;
+        }
+
+        /* Mobile Responsive Tweaks */
+        @media (max-width: 480px) {
             .glass-card {
-                padding: 30px 20px;
+                padding: 40px 20px;
             }
-            .profile-circle {
-                width: 120px;
-                height: 120px;
+            .profile-container {
+                width: 130px;
+                height: 130px;
             }
-            h1 { font-size: 1.4rem; }
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="glass-card">
-        <span class="status">Launching Soon</span>
-        
-        <div class="profile-circle">
-            <img src= <img src="https://i.ibb.co/5y13PPm/saad-png.png" alt="Syed M Saad">
+        <div class="profile-container">
+            <img src="https://i.ibb.co/5y13PPm/saad-png.png" alt="Syed M Saad">
         </div>
 
-        <h1>Coming Soon</h1>
-        
-        <div class="divider"></div>
+        <h1>COMING SOON</h1>
+        <p class="tagline">Innovating the Future</p>
 
-        <p class="name">Syed M Saad</p>
-        <p class="ceo">Founder & CEO</p>
-        <a href="https://syedmsaad.com" class="link">syed m saad .com</a>
+        <div class="info-section">
+            <p class="name">Syed M Saad</p>
+            <p class="title">Founder & CEO</p>
+            <a href="https://syedmsaad.com" class="domain">syedmsaad.com</a>
+        </div>
     </div>
 
 </body>
 </html>
-
-
-
