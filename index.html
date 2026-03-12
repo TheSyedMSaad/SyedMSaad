@@ -1,204 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syed M Saad - Coming Soon</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Syed M Saad</title>
+    <style>
+        /* Modern Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Gradient matching your photo's warm orange and dark jacket tones */
+            background: radial-gradient(circle at center, #422d1b 0%, #121212 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            padding: 20px;
+        }
 
-  body, html {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+        /* 3D Glass Container */
+        .glass-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            /* 3D perspective effect */
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.4s ease;
+        }
 
-  /* Stars */
-  .stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-  }
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #b266ff;
-    border-radius: 50%;
-    box-shadow: 0 0 6px #b266ff;
-    animation: twinkle 2s infinite alternate;
-  }
-  @keyframes twinkle {
-    0% { opacity: 0.2; transform: scale(0.5);}
-    50% { opacity: 1; transform: scale(1.2);}
-    100% { opacity: 0.2; transform: scale(0.5);}
-  }
+        .glass-card:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
 
-  /* Container - crystal clear glass effect */
-  .container {
-    position: relative;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: rgba(128,0,128,0.02); /* very subtle blur */
-    border-radius: 20px;
-    backdrop-filter: blur(1px); /* minimal blur for crystal clear glass */
-    border: 1px solid rgba(255,255,255,0.15); /* glass edge */
-    z-index: 2;
-    color: #fff;
-    animation: float 6s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+        /* Profile Image logic - Circular and Matching Palette */
+        .profile-wrapper {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
 
-  h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    text-shadow: 0 0 8px #fff, 0 0 20px #b266ff;
-  }
+        .profile-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #cc8d4c; /* Matching the warm light in your photo */
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(204, 141, 76, 0.4);
+        }
 
-  .coming-text {
-    display: block;
-    margin-top: 0.5rem; /* moves Coming Soon downward from Syed M Saad */
-    font-size: 1.8rem;
-    color: #fff;
-    text-shadow: 0 0 6px #fff, 0 0 15px #b266ff;
-  }
+        /* Text Content */
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, #cc8d4c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  p {
-    font-size: 1.2rem;
-    color: #d3d3d3;
-    text-shadow: 0 0 5px #b266ff;
-    margin: 1.5rem 0 2rem 0;
-  }
+        .status-tag {
+            display: inline-block;
+            background: rgba(204, 141, 76, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #cc8d4c;
+            margin-bottom: 30px;
+            border: 1px solid rgba(204, 141, 76, 0.3);
+        }
 
-  /* Countdown Timer */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-  }
-  .countdown div {
-    background: rgba(128,0,128,0.05);
-    padding: 1rem 0.8rem;
-    border-radius: 10px;
-    min-width: 60px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 0 10px #b266ff;
-  }
-  .countdown span {
-    display: block;
-    font-size: 0.8rem;
-    color: #d3d3d3;
-    margin-top: 4px;
-  }
+        .founder-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
 
-  .notify-btn {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    color: #fff;
-    background: none;
-    border: 2px solid #b266ff;
-    border-radius: 50px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 0 8px #b266ff, 0 0 20px #b266ff;
-    transition: 0.3s;
-  }
-  .notify-btn:hover {
-    background: #b266ff;
-    box-shadow: 0 0 12px #b266ff, 0 0 25px #d3aaff;
-  }
+        .title {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 10px;
+        }
 
-  @media (max-width:500px){
-    h1{font-size:2rem;}
-    .coming-text{font-size:1.5rem;}
-    p{font-size:1rem;}
-    .countdown {gap:8px; font-size:1rem;}
-    .countdown div{min-width:45px;padding:0.6rem 0.5rem;}
-    .notify-btn{padding:0.6rem 1.5rem;font-size:0.9rem;}
-  }
-</style>
+        .domain {
+            font-size: 1.1rem;
+            color: #cc8d4c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .glass-card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .profile-wrapper {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="stars" id="stars"></div>
+    <div class="glass-card">
+        <div class="status-tag">UNDER CONSTRUCTION</div>
+        
+        <div class="profile-wrapper">
+            <img class="profile-circle" src="saad.png" alt="Syed M Saad">
+        </div>
 
-<div class="container">
-  <h1>Syed M Saad</h1>
-  <span class="coming-text">Coming Soon</span>
-
-  <p>Our website is almost ready. Stay tuned!</p>
-
-  <div class="countdown" id="countdown">
-    <div><span id="days">0</span>Days</div>
-    <div><span id="hours">0</span>Hours</div>
-    <div><span id="minutes">0</span>Minutes</div>
-    <div><span id="seconds">0</span>Seconds</div>
-  </div>
-
-  <button class="notify-btn">Notify Me</button>
-</div>
-
-<script>
-  // Generate stars
-  const starsContainer = document.getElementById('stars');
-  const starCount = 100;
-  for(let i=0;i<starCount;i++){
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.top = Math.random() * 100 + '%';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.width = star.style.height = Math.random()*2 + 1 + 'px';
-    star.style.animationDuration = (Math.random()*2 + 1) + 's';
-    starsContainer.appendChild(star);
-  }
-
-  // Countdown Timer
-  const countdownDate = new Date("June 1, 2026 00:00:00").getTime();
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
-
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000*60)) / 1000);
-
-    daysEl.innerText = days;
-    hoursEl.innerText = hours;
-    minutesEl.innerText = minutes;
-    secondsEl.innerText = seconds;
-
-    if(distance < 0){
-      clearInterval(timerInterval);
-      document.getElementById("countdown").innerHTML = "We are Live!";
-    }
-  }
-
-  const timerInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
+        <h1>COMING SOON</h1>
+        
+        <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p class="founder-name">Syed M. Saad</p>
+            <p class="title">Founder & CEO</p>
+            <a href="#" class="domain">syedmsaad.com</a>
+        </div>
+    </div>
 
 </body>
 </html>
-
