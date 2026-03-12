@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -18,129 +18,131 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Gradient matching your photo's warm orange and dark jacket tones */
-            background: radial-gradient(circle at center, #422d1b 0%, #121212 100%);
+            /* Gradient matching your photo's warm lighting */
+            background: radial-gradient(circle at center, #3d2b1f 0%, #000000 100%);
             color: #ffffff;
-            overflow-x: hidden;
             padding: 20px;
+            overflow: hidden;
         }
 
-        /* 3D Glass Container */
+        /* 3D Glassmorphism Card */
         .glass-card {
-            position: relative;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
+            border-radius: 25px;
             padding: 40px;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            /* 3D perspective effect */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            /* Subtle 3D tilt */
             transform: perspective(1000px) rotateX(5deg);
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease, border-color 0.4s ease;
         }
 
         .glass-card:hover {
             transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+            border-color: #f4a261;
         }
 
-        /* Profile Image logic - Circular and Matching Palette */
-        .profile-wrapper {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 25px;
-            position: relative;
-        }
-
+        /* Circular Profile Image */
         .profile-circle {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            border: 4px solid #f4a261; /* Matches the orange light in your photo */
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(244, 162, 97, 0.3);
+        }
+
+        .profile-circle img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            border: 4px solid #cc8d4c; /* Matching the warm light in your photo */
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(204, 141, 76, 0.4);
+            border-radius: 50%;
         }
 
-        /* Text Content */
+        /* Typography */
         h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             letter-spacing: 4px;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, #cc8d4c);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #fff, #f4a261);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .status-tag {
-            display: inline-block;
-            background: rgba(204, 141, 76, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
+        .status {
             font-size: 0.8rem;
-            color: #cc8d4c;
+            color: #f4a261;
+            letter-spacing: 2px;
             margin-bottom: 30px;
-            border: 1px solid rgba(204, 141, 76, 0.3);
+            display: block;
+            text-transform: uppercase;
         }
 
-        .founder-name {
-            font-size: 1.4rem;
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+
+        .name {
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-top: 20px;
         }
 
-        .title {
+        .ceo {
             font-size: 0.9rem;
-            color: #aaaaaa;
+            color: #888;
             margin-bottom: 10px;
         }
 
-        .domain {
-            font-size: 1.1rem;
-            color: #cc8d4c;
+        .link {
+            color: #f4a261;
             text-decoration: none;
             font-weight: 500;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 480px) {
+        /* Mobile Responsive */
+        @media (max-width: 400px) {
             .glass-card {
                 padding: 30px 20px;
             }
-            h1 {
-                font-size: 1.6rem;
+            .profile-circle {
+                width: 120px;
+                height: 120px;
             }
-            .profile-wrapper {
-                width: 130px;
-                height: 130px;
-            }
+            h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="glass-card">
-        <div class="status-tag">UNDER CONSTRUCTION</div>
+        <span class="status">Launching Soon</span>
         
-        <div class="profile-wrapper">
-            <img class="profile-circle"> <img src="saad.png" alt="Syed M Saad">
+        <div class="profile-circle">
+            <img src="https://lh3.googleusercontent.com/d/15r_N8_m00_t2KxN_3V_p8J-8V8T6R9Lw" alt="Syed M Saad">
         </div>
 
-        <h1>COMING SOON</h1>
+        <h1>Coming Soon</h1>
         
-        <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <p class="founder-name">Syed M. Saad</p>
-            <p class="title">Founder & CEO</p>
-            <a href="#" class="domain">syedmsaad.com</a>
-        </div>
+        <div class="divider"></div>
+
+        <p class="name">Syed M Saad</p>
+        <p class="ceo">Founder & CEO</p>
+        <a href="https://syedmsaad.com" class="link">syed m saad .com</a>
     </div>
 
 </body>
 </html>
-
-
-
-
-
